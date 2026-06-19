@@ -1,0 +1,197 @@
+/* ============================================================
+   ANODIC — BOLD CORPORATE DESIGN SYSTEM (v3 revamp)
+   Loaded after each page's inline styles; overrides the
+   shared design tokens + components. Content/SEO untouched.
+   ============================================================ */
+
+:root {
+    --white: #ffffff;
+    --gray-50: #f5f7fa;
+    --gray-100: #edf1f7;
+    --gray-200: #dbe2ec;
+    --gray-300: #c4cedd;
+    --gray-400: #7e8da3;
+    --gray-600: #46566e;
+    --gray-800: #1e2f4a;
+    --gray-900: #0b1b33;          /* navy ink — also drives .section-dark */
+    --navy: #0b1b33;
+    --navy-deep: #081426;
+    --blue: #0e9496;              /* brand teal, deepened */
+    --blue-hover: #0b7a7c;
+    --blue-light: #2bd4d6;        /* bright teal for dark surfaces */
+    --amber: #f5a300;
+    --green: #1f9d5b;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'Archivo', 'Inter', -apple-system, sans-serif;
+    --radius: 12px;
+    --radius-btn: 6px;
+}
+
+/* ===== BASE ===== */
+body {
+    font-family: var(--font);
+    color: var(--gray-900);
+    letter-spacing: -0.01em;
+}
+::selection { background: var(--blue); color: #fff; }
+
+h1, h2, h3, h4, h5,
+.section-headline, .hero h1, .section-title, .section-heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+/* ===== HEADER — solid navy bar ===== */
+header {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+header.menu-open { background: var(--navy); }
+.logo { color: #fff; }
+header .logo img { filter: brightness(0) invert(1); }
+nav a {
+    color: rgba(255,255,255,0.72);
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+}
+nav a:hover { color: #fff; }
+header.menu-open nav a {
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-toggle svg { color: #fff; }
+.nav-cta {
+    background: var(--blue);
+    border-radius: var(--radius-btn);
+    font-weight: 700; letter-spacing: 0.06em;
+    padding: 9px 18px;
+}
+.nav-cta:hover { background: var(--blue-light); color: var(--navy) !important; }
+
+/* ===== HERO — high-contrast navy ===== */
+.hero {
+    background: radial-gradient(120% 90% at 70% -10%, #14365e 0%, var(--navy) 55%, var(--navy-deep) 100%);
+}
+.hero h1, .hero h2,
+.hero .stat-value, .hero .stat-item strong,
+.hero-stat-num { color: #fff; }
+.hero p, .hero-sub, .hero-subtitle, .hero .tagline { color: rgba(255,255,255,0.72); }
+.hero-eyebrow {
+    color: var(--blue-light);
+    font-size: 13px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.18em;
+}
+.hero h1 { font-weight: 800; }
+.hero h1 em {
+    background: linear-gradient(90deg, var(--blue-light), #8ff0f1);
+    -webkit-background-clip: text; background-clip: text;
+}
+.hero-stats-bar { border-top-color: rgba(255,255,255,0.14); }
+.hero-stat-label, .hero .stat-label { color: rgba(255,255,255,0.5); }
+.hero-link-primary { color: var(--blue-light); font-weight: 600; }
+.hero-image { border-radius: var(--radius) var(--radius) 0 0; }
+
+/* ===== SECTION RHYTHM ===== */
+.section-eyebrow {
+    font-size: 13px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--blue); margin-bottom: 14px;
+}
+.section-dark .section-eyebrow { color: var(--blue-light); }
+.section-headline {
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.04;
+}
+.section-desc { font-size: 19px; letter-spacing: -0.01em; }
+
+/* ===== BUTTONS — sharp, confident ===== */
+.btn-blue, .btn-white, .btn, .cta-button, .cta-btn, .hero-cta {
+    border-radius: var(--radius-btn);
+    font-weight: 700; letter-spacing: 0.02em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-blue:hover, .cta-button:hover, .cta-btn:hover {
+    background: var(--blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(14,148,150,0.35);
+}
+.btn-white { color: var(--navy); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+
+/* ===== CARDS — bordered, lifted, accent-topped ===== */
+.tile, .it-card, .project, .test-card, .service-card, .service-tile,
+.pricing-card, .diff-card, .comparison-card, .area-item {
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    box-shadow: none;
+}
+.section-dark .tile, .section-dark .service-card {
+    border-color: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+}
+.tile:hover, .it-card:hover, .project:hover, .service-card:hover,
+.service-tile:hover, .pricing-card:hover, .diff-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue);
+    box-shadow: 0 16px 40px rgba(11,27,51,0.12);
+}
+.service-card, .it-card, .pricing-card { border-top: 3px solid var(--blue); }
+.section-dark .tile:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+
+/* ===== ICONS / TAGS ===== */
+.icon-wrap, .service-icon { border-radius: 8px; }
+.icon-blue { background: rgba(14,148,150,0.12); color: var(--blue); }
+.tile-tag, .project-tag, .brand-badge {
+    border-radius: 4px;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* ===== STAT NUMBERS — amber punch ===== */
+.it-callout-num, .stat-value, .hero-stat-num { font-family: var(--font-display); }
+.it-callout-num { color: var(--amber); }
+
+/* ===== FAQ ===== */
+.faq-q, .faq-question { font-weight: 700; font-family: var(--font-display); letter-spacing: -0.01em; }
+
+/* ===== FORMS ===== */
+.form-field input, .form-field textarea, .form-field select {
+    border-radius: var(--radius-btn);
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(14,148,150,0.15);
+}
+.form-field label { color: var(--gray-600); }
+
+/* ===== FOOTER — navy ===== */
+footer {
+    background: var(--navy-deep);
+    border-top: none;
+}
+footer h4, footer h3, footer strong { color: #fff; }
+footer p, footer li, footer span { color: rgba(255,255,255,0.55); }
+footer a { color: rgba(255,255,255,0.65); }
+footer a:hover { color: var(--blue-light); }
+footer img { filter: brightness(0) invert(1); }
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.45);
+}
+.footer-col h4, .footer-section h4 { color: #fff; }
+
+/* ===== CTA STRIP — navy tint over photo ===== */
+.cta-strip {
+    background: linear-gradient(rgba(8,20,38,0.78), rgba(8,20,38,0.78)),
+                url('../images/cta-dubai-skyline.jpg') center/cover no-repeat;
+}
+
+/* ===== RESPONSIVE GUARD ===== */
+@media (max-width: 768px) {
+    header.menu-open { background: var(--navy); }
+    .hero h1 { font-size: 42px; }
+}
